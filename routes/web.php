@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
         [ProdutoController::class, 'SalvarNovoProduto'] )->name('produto_novo');
 });
 
-Route::get('/login', function() {
+Route::get('/', function() {
     return view("admin_template.login");
 })->name('login');
 
@@ -36,8 +36,5 @@ Route::get('/registrar', function() {
 Route::post('/login', [AuthController::class, 'login']);
 
 // Rotas para administradores
-Route::middleware('adminAuth')->group(function () {
-    Route::post('/registrar', [AuthController::class, 'registrar']);
     Route::post('/registrar', [AuthController::class, 'registrar']);
     // suas rotas de administradores aqui
-});
